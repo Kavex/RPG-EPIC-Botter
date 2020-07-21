@@ -1,0 +1,136 @@
+program New;
+var
+rpgaxe: Boolean;
+rpgnet: Boolean;
+rpgpickup: Boolean;
+rpgmine: Boolean;
+rpghuntt: Boolean;
+rpginv: Boolean;
+rpgprofile: Boolean;
+procedure SetupUI;
+
+begin
+
+// Only one of these true at a time
+rpgaxe:= True;
+rpgnet:= False;
+rpgpickup:= False;
+rpgmine:= False;
+
+// Extra commands
+rpghuntt := False;
+rpginv := True;
+rpgprofile := False;
+end;
+
+// Don't edit anything below, this doesn't have guard protection so only run it when you can watch discord otherwise you will be jailed
+begin
+
+SetupUI;
+Repeat
+
+if rpginv = True then
+begin
+	PressKey('r');
+	PressKey('p');
+	PressKey('g');
+	VKeyDown(VK_SPACE);
+	PressKey('i');
+	PressKey('n');
+	PressKey('v');
+	VKeyDown(VK_RETURN);
+  WriteLn('Checked Inv')
+	Wait(3000);
+end;
+
+if rpgnet = True then
+begin
+	PressKey('r');
+	PressKey('p');
+	PressKey('g');
+	VKeyDown(VK_SPACE);
+	PressKey('n');
+	PressKey('e');
+	PressKey('t');
+	VKeyDown(VK_RETURN);
+  WriteLn('Waiting 3 Mins and 30 Secs')
+	Wait(200000);
+end;
+
+if rpgaxe = True then
+begin
+	PressKey('r');
+	PressKey('p');
+	PressKey('g');
+	VKeyDown(VK_SPACE);
+	PressKey('a');
+	PressKey('x');
+	PressKey('e');
+	VKeyDown(VK_RETURN);
+  WriteLn('Waiting 3 Mins and 30 Secs')
+	Wait(200000);
+end;
+
+if rpgpickup = True then
+begin
+	PressKey('r');
+	PressKey('p');
+	PressKey('g');
+	VKeyDown(VK_SPACE);
+	PressKey('p');
+	PressKey('i');
+	PressKey('c');
+	PressKey('k');
+	PressKey('u')
+	PressKey('p')
+	VKeyDown(VK_RETURN);
+  WriteLn('Waiting 3 Mins and 30 Secs')
+	Wait(200000);
+end;
+
+if rpgmine = True then
+begin
+	PressKey('r');
+	PressKey('p');
+	PressKey('g');
+	VKeyDown(VK_SPACE);
+	PressKey('m');
+	PressKey('i');
+	PressKey('n');
+	PressKey('e');
+	VKeyDown(VK_RETURN);
+  WriteLn('Waiting 3 Mins and 30 Secs')
+	Wait(200000);
+end;
+
+if rpghuntt = True then
+begin
+	PressKey('r');
+	PressKey('p');
+	PressKey('g');
+	VKeyDown(VK_SPACE);
+	PressKey('h');
+	PressKey('u');
+	PressKey('n');
+	PressKey('t');
+	VKeyDown(VK_SPACE);
+	PressKey('t');
+	VKeyDown(VK_RETURN);
+  WriteLn('Hunting Done')
+	Wait(5000);
+end;
+if rpgprofile = True then
+begin
+	PressKey('r');
+	PressKey('p');
+	PressKey('g');
+	VKeyDown(VK_SPACE);
+	PressKey('p');
+	VKeyDown(VK_RETURN);
+  WriteLn('Check Profile')
+	Wait(5000);
+end;
+WriteLn('Done Waiting, Repeat Script')
+until (False);
+
+end.
