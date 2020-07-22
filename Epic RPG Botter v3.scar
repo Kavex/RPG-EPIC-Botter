@@ -1,0 +1,478 @@
+program New;
+var
+
+GuardEpicCoin, GuardGoldenFish, GuardLifePotion, GuardWolfSkin, GuardCoin, GuardNormieFish, GuardBanana, GuardGem, GuardJail, GuardMermaidHairs, GuardEpicFish, GuardUnicornHorn, GuardApple, GuardZombieEye, GuardChip: TSCARBitmap;
+
+x, y: Integer;
+ClientBox: TBox;
+
+ 
+procedure SetupUI;
+
+begin
+
+  GuardEpicCoin := TSCARBitmap.Create('deNqTYJBmUBl5QENOV0vaGBlpyOqrqKgSqV1VS' +
+    'U1dXkddTtdZ2TtULR6IQlTjfJRCPRWD7RXcNeX0gFKqSuoETFFW0VTQNZd2slF' +
+    'wLDGpmOU6C4hmuMxotGqsNK9M1c20kHQ1FXfWlNdTUcbnME1ZfU/F0HlBPefnJ' +
+    'i0JmDXPbR7QnJkuM5usm6rMq4BG1VrU1lvWu8oHaMkY4TNHTt9XJWxVUvutdZE' +
+    'b46Yv91m6xGvxYs/F89zn9Tv0t9i0tNm0tdu2eyoEa8kY4wnYSA/jFT2OT044/' +
+    'P+i8uSAz8V5qe0BuXlGlflGVTUWjUATOu06Jjr3FBtXeKsGa8hh9522pFm2Tcb' +
+    'BoqU3Fpd8vW+xpzu7KSDPSdnbUS7cSS4yUSe/1bpzcWT74b50oE8z9Qp0JM1Vl' +
+    'dWwmpNuUrAjfse+nNW3V+ZlWKZbSfr4KadDkKt8bKRG5rKEpjNzY2e5TcdvTrJ' +
+    'h8ZqIfRsSth1qn5BkkoNsToZbyMS8wIeHHf9+UD8zL2ZGbpittikuc6J0Kmb4n' +
+    'oKgCK1SZHOSHUObEsIubfP88Upra3d6S2yclQY+c6b5noKgcFRzgP7yU8pu8+n' +
+    'Z3pdabLA4VKUUj7+8NWqKnS9DkJd6hZWUt59KGtwcF4W8NPvpU8tLg9VXO8tX4' +
+    'THHXb02y/EaBLmpVUY52Ge5xMDNcZTP81Rd6aW6Fojs5KrxmOOgWh9pexuCHFR' +
+    'rK5JNm5KC/JTTwObE2cgVWSutt1baDESmMnV4zNFXajEweW5o+szc+r6X2/Idq' +
+    '213L7WOtgz1Uos0katWkF4qLn1ATPoQEClKtOEyB5i5dBRSdDU2Gxqf7mhr3rw' +
+    'u4+0T49cPTTavTe1tKdXXWiomfVBEcpeIxDYZiVkqkumasga4civQKE2xOHHJH' +
+    'eIyx1U0jrY1V9RU1atoHJdROC0uvVNIbLWgyFJBkUVqIlH48ykwywDVCAiu4RX' +
+    'YziOwMya6IyxsmojkIUGRlfxCC7j5ZnDxTAEiVeFQTbzmAP2rJmusJhygJhTCz' +
+    '9UtJLpMWHQVK+cmVvbpLOx9vJwVKoL+akK+QDUEizKgAqCrgH5XEAmX4isEowI' +
+    'p3hQp3gR5oUANWSOgFOHyEC3YJc2QkaaMIf5icPgBAP2cxAw=');
+    
+  GuardGoldenFish := TSCARBitmap.Create('deNqTZRBlUBkFgwbo68ga6UrDkaGuDCWm6WnLh' +
+    'rjxxfvxNaaz7prKBEVTmHoLmN1txVRVlYkxxNxQWlNDURXJzEQ/jrOLGV7tZvi' +
+    'wn+H/GQT6dIhhZTuzlbE4QTOBBs6pZa5IZLcwBClWVVEGmnl+KYppyOjdPoaUA' +
+    'A5NdUX8xmprKGzuBzmsv4i5MIYLiJa1MP47DXbbQYYHmxkebwOx/5xiKIll2DG' +
+    'ZASi1uZ/RxliUGGOBio/NY9g6kWHbJIZ3YI//PcWwfybDuaUMl1eCuacZVnUwX' +
+    'AGzX+xkyI1gJ8bY13sYdk9j2D6ZYecUhm9HQXp/n2TY1I89HIA2tmSxEmPsl8M' +
+    'M+2YAfcdwehHIQExjgUH66wRpxm7qA5rJHOPNHerKubYLqhcYLKcWMeydzvByF' +
+    '4h9bTXUOiC6u4EhzocTv7FaGgpLmpkivfg01BXNDCQa0piAAQLR/vM4KNZ+nwA' +
+    'Ze3MtKHgh4kfmMFgYSuA3Fpi2gSlcV0sewrUyFuvMZXq7l+HfaUQIQFwLTBVPt' +
+    'jEcmMlQFM2qpy1HahYDJuCsMI6NvSgmA1PglgkMGcFsDmZCOjA3kASA7tfUUPB' +
+    'z4AWa82gLw611DBNLgEma185MXE9LTo24nIsLaKgpetgIBbsKBboImepLaqgrj' +
+    'Ra8+AEAy8Kvvg==');
+  
+  GuardLifePotion := TSCARBitmap.Create('deNoTYRBiUBlMQE9D3lFfDI4c9MV0NeSJ1GuhI' +
+    '5Vkx1URrVYdp1UeqRpvyw0UIVKvspKSnrn51qfPj/76s/rmHV1TU+LdrATSa7H' +
+    't+atjf/6vuX1Px9SMBL3KykY2tttevAbqXXv3gYGVtbKyMpF6FZSVW1asAmoEo' +
+    'd//mpatkJCQIMqzyspaikrTp808e/s+BE2ZOkNJQpIYqxUUFIKExR6q6T9SN4C' +
+    'gG6q6AUKiioqKBEPJWUB4O5/4TUFpOLohKL2NT9xGUAS/djkZmRYuAWSNEHRVQ' +
+    'KqIW0BWCmcsA4015+G/gaERiK4ISK3jEzPj4cWv9yY2vRcFpNbyiZlyk6z3sqD' +
+    'UIQGJRXwi+tw8+AJZTk6ahxcNSfHwSgIRH5+8rOxgyKoAK1/aDQ==');
+  
+  GuardWolfSkin := TSCARBitmap.Create('deNrlk81ugkAUhX2Jpi9QfgQRBtCBgRlmRsBil' +
+    'LYudOlGfQDj+6cnNTFNq5a6atKzgsk9d06+e+eh99h7+sMaDAa2bd/nNQyDMTY' +
+    'cDu+zu65bCBGFoWmaHa/7XBmH4Vs1kYyd8xsfumaP47iqqjAMUe86Ti34qyqee' +
+    'RYTgrY49DwvCIKLNNB2NBrt9/v1ei2lLIqircqZ1rNCTPM8oTTPc845aizLuhY' +
+    'gSZKmaVarVdu2SFKWZa2kZKngPE1TxLvhPcfwfR9NFosXpUolJzzLoyjqCPAkE' +
+    'EBeSgVjOkmyfr//q6mZpuX7cRBQQqjnkRvAL+bHtlDKs0wzJsfjtPvuwYvk0+m' +
+    'sadq6BvtS6wlOfoR2EqV0s9nsdrvlcolBAJpSClPDR5cOmPjxeNxut9gQ/MKCk' +
+    'WmtO8IXQhwOByyP4zinE3BAACxMFzteynw+J4R8IQl15P+97PZj+Z96B9/K6tw' +
+    '=');
+  
+  GuardCoin := TSCARBitmap.Create('deNqTZJBmUBlqQE1NSVNTAQVpKJJqiKqqMhBZm' +
+    'osH+bEDUSAM+XhyA00DyxJljrq6koOdoLMjf2Uxx+5NDBC0fjnD8vkMs6cweXv' +
+    'yAaVMjCUJmqOpqWhvK9bWwNTfwXBwO8P/TyD07yPD6/sMdy8xXDrB0N3K0FLHE' +
+    'B/NY2Qojd8oYyPJ7DSGd4+ghsCNAoo8uAoyDYLmTWPw92bHG87A8JEoyWd4/xh' +
+    'hyM83DL/eMvx4AzINbtSiWQxhQezAoMAaaEBBC3Ox/CyOS8dBeiFGfXrGsH0tw' +
+    '7E9DKcOMFw4ijAKyF0wg8nVmVdbSwFrrDnaC3Q1I/z14g7DyX0M29YyHNzBcGQ' +
+    '3yMDTBxluX4CadmQXQ0gAs66uHDFGnT8CtJrh5jkoOnOIYcc6hlvnR40aMkYBE' +
+    '9iSOQxXTzFcO81w/QzIqF0byDTqwxOQOasXMezayLB/K0gv0PA7FwkbBcmAibE' +
+    '8OzcwfH8NNe3rS4YT+xgunwA57MY5RGrfv42hp43Z1loYmP1Jys5A9PsdKGMSn' +
+    '52BwNBAKiWB+d5lkGlAJ6EVMsBcc+EYw/mjDFN6mbzcuQiWe+amkkW5zFUljFt' +
+    'WM/x5D0JAJ724Cwrwc0cYqksZi3IZg/z5dHXkiCnSzU3FLc1FUxN55kxhgKApv' +
+    'Qx97cBCj8nBThgopa8nQ1IJDww3dxceZAQsioHOVhmpAAAVWU6a');
+
+  GuardNormieFish := TSCARBitmap.Create('deNqTZxBjUBkFo2AQAxkZGWlpaWVlZWRBWVlZQ' +
+    'UFBdgNrNksPFKRuICIqJi8vT6ThHEpazAa2omJiSmCgqKgoJCbOLqvClNrEsPw' +
+    '6w7ZXCLThCcPUA0zJ9ZzCYnJycsQYzmruxrDmHpNrBJtjEBCxOgQypLcyrLjJc' +
+    'OQvw7H/KCiugiG6lGH/N4aa+ewSQM/JEmX4vm8MHRsYmleBENDYfV9BRh36xTD' +
+    'zGMOEXQz7v0INn7yXYeJuhiN/GA7+YMjuEhKTIMrwlbcZJu9jmLQHhIDehxg1+' +
+    'yTDylsM21+DDN/3Bc0XTK6R4hLEGb76HkPfdoaeLcAgZdj9EWb4cYZVt0GBsP0' +
+    'Nw/qHKIbv+cRqZAeMHaIMn7yXRVWPV02X0daPYc1dqAn7v4OCZe19oFEgL2x9x' +
+    'XD0H1j8G0NYPp+YBFoCw264iAS/poGMrCwwqUjJyPLY+zHMO8OwFxwOh3+DohV' +
+    'oJtD8OScZllxhWHqFMbyAT0RMQUGBmNQiJCQETOdwroKSEpe8KkNUCcPMI1CnQ' +
+    'tCB7wx7PjIEZvKIShATIBCA6TugqySlZTgV1DnMnFGQqZOUvALxJuOxEWiIAiq' +
+    'g3NhRQF0AAMiqlao=');
+    
+  GuardBanana := TSCARBitmap.Create('deNqTYZBiUBkFGEBVVVlXW1pDTYFaBqqpKXnbi' +
+    'k1K5Y9wEVRVUaaKmfo6MhOyeE90CeeF8gAdTBVHhvvwXljLfH8HS0UaO1XM1NJ' +
+    'QyI1nf3KQ4ct5hs0zmQ31pCg309ZcdN0UxieHGH5eYXh8kMHGTIhyM52shfcvY' +
+    'oCY+fwog58rP+Xeh5j58hjD76sgY6c1sOpqy1LFzOdHGH5dZfh7neH2bsYIX16' +
+    'qmPnoAMOHMwx/rjF8u8iwpJfFzIiimLI0EV/YxfxwPwMw6oEGAp36+RzDrBY2E' +
+    'wNpss1UV1OMDeS5tpUBaCwwVP9cBxkLTFeLulnDfPg01MnMrWZGksv7GB/sA6U' +
+    'liFNBxl5guLmTMT2K19RQgoyUoK6mFOYjsHchI9CpTw8xfDrH8OsK1OQXRxl2z' +
+    'GVKj+Q2MZAE+ogkYzXUFaP8BfYsABkLdC0wED6ehaYESLpdM4U5I5rH11XA2UZ' +
+    'ETVWJeGOBrt0wjeHaNlDYPj4AMurzeRACGgtMvc+OMNzdw3BgCZOPszDxoQEsT' +
+    '8yNJdIiuBd3M5/fADL50X5QMgOaBjT/6laGo8sZ24rZPBxFSA1hYFzbWohlxXD' +
+    'PaWWCo+mNzMlhPB6OQvq6ssT7HTON6WrJwJGOlgzQF6MVIh0AAK77rwE=');
+
+  GuardGem := TSCARBitmap.Create('deNrtks9LFGEYx7+P+2MWfd8ZZ3bcPeyuO7OOW' +
+    'OCaIkGXCqLoP1Dox6V74EWF3S6ePGRQHis6lEXpwUCEqJBcK8kUDS0R0jUD6RJ' +
+    '4MA8K2cNrhzC0Me3Wl+fwfOed+fCd93kSsOH91z9TjeedzGTOqDrluly/9/yCT' +
+    '1q15zUlk2/j8WI8/jEWK0g5HY0WlX1nWcNSLqh+LBY7nUpV+6AdTyTuhMNfDWO' +
+    'zomLFMMYDgS9Scv/dtpeFGCsp+WZZbFdNs0fTziaTuwOPpVL5UKgP+BAOr0ejc' +
+    '5r2EpgKBjdse800J4NBttOh0JplLZaWjgD3NO1EZeVOtENVVc2m2QU8AQpEM0w' +
+    'j4q/eEM1HIrOaVgCGgVdEC5HIVCDAR8+IWixrJ+DhTOaClFeATuA68ADoBV4AR' +
+    'VWvleV6zPnVEz56SNSu67v8cq3jnBeiHcgB3UAP8BT4DCwDo8pyDQFLism0FsP' +
+    'I/mncdY5zkZlEHcBdFWn2F+AjhVoEBhWtwXX9bE59Os3MNuAacJ/vUIV8rnoO/' +
+    'AkYIcpLmfW9iqys4zQLkQduAgPAvMrGad9zVKJWXa/zl23bfZ4rK+sk6gfmFI3' +
+    'jzRDlDKN+77QtHUmnLwlxi2hUDXeC6OpfZdvGvCwE7/MQ0W1db9wfbUsNjnNDy' +
+    'lx5+dGDoP1kum7tXmZ6UPoB5/kY1A==');
+  
+  GuardJail := TSCARBitmap.Create('deNpTYBBi0Dc0G0WkoYn77ty9t3siYZV9e+/du' +
+    'Xt5VQGaCAhdXFlIC/Ph4vjMpxhhNx/sbDhCcv+k3XDxvZOgggVrL0IF9/UZkup' +
+    '+kIFw8/v2wk1AEYfZQqn5+DRSxXzUcKOy+eBwRgorWpgPS4Fgj1A9fOBZ5s6Ft' +
+    'atgGnNWXkYONFgqQkpp+HIZUBmWXEMtBHYbFl9Tnulg/qKh44ccAgDAoQrP');
+           
+  GuardMermaidHairs := TSCARBitmap.Create('deNoTYpBjUBkFIx6oWruqOvioJFYrTjkq3riev' +
+    '3CWYEavspo6LvUmCcVGlTO01j6T2fSJZ80HwZL5Mi6hypo6yhrauLSYFvUa7/6' +
+    'mtucPx7ovnH3HFA0tldU08LsKaIvxrq+qe/6CtHQdkDd3IsYvhhXTdPf/49/4j' +
+    'WHVJ1k7HyJDQL10mvrev1zrvwJ1yVm5E6srv1du+w/GVZ+AumQcAogNbg0t6ab' +
+    '1jCs/AHWxTTkva+NJpD5lz0iuRY8YQNZ9FIsoJdY6NTWJoBzG5e8Ylr0RC84lP' +
+    'lUoGpgzLn3NsPiFmF86kVqUtPX5C2czLHvL1rxDwcCCSF0yNUtBzpv7QCQkX0V' +
+    'VDWcq1TdRC8lQC80CIsWm1awr3jDOuScalEsgIekZqwUkqRdNEp9/g3v2Te6GT' +
+    'ZIu4QTTHiyCNZS1dEFIQ2u0lCAeAACMtCgP');
+    
+  GuardEpicFish := TSCARBitmap.Create('deNoTYxBnUBlRQFVF2UJTyUMXiIAMUnUr66krp' +
+    'pkpTnaWm+msuMxTaaKzsp02Cfo1VBVLrJS3ByjvDRQrNZJf6q5yIFixyY5Y7eq' +
+    'qismm5oe8Su6aqx4NVTkUonokRPVwiGKPA7Hut9RSnOaSeN225J4Z0AQIApqj2' +
+    'GlPlH41VaUkU/U9/vUPjbwvugP1mp7yD7nirLTBR8lLjxj3K1tpKc501Tse2Pz' +
+    'I0OyUn8NZ744n+rm3LBTrbZV11Qg4HhhxiSbmSyy19vmpHQ3RPxFod9a7/5lO+' +
+    'lULjfWeSt64HaCmomyrrZhnobvAwfaAg81JV41jwRC/A40yXuqgXGShBIxHVZz' +
+    'aVX11TRdZRRzWzbykHnvRwPIkyO+ax4Ic9tkoFloqueioaON1vImGwxqT4HNmF' +
+    'ic9ws6bGJ3wAWrXP+5ndNxba4adsjkR6RBofqmFykxH5RnOjuvN9I/56h739z5' +
+    'r7XXKWjHbHKfLMQxRNlIHIiVffaMV9pEXjPOuqljusFfy0SM5H2mpqbTZmJ/0T' +
+    'DmnqdjrCIxZkk3QVFVstXM94+Cx21Qp0ICcvKyuqpRt7rbbTDvPEOQe8oCeuoq' +
+    'Proqu2ggp/wA+lyaf');
+
+  GuardUnicornHorn := TSCARBitmap.Create('deNoTY5BgUBm+QE1J2UFc2VRejWwT1JWUI6T1s' +
+    'sWNgIaokmuIiZTSOpvEKa7xFspa5JmgpaBco+d+KK6+wzxQW16ZPEOSZYz3uea' +
+    'sck2NVDdXI8sMS1m1HUHFf/o2HkposJRTIy88C/VcHhZMuVs4pdbER0+RnEC1V' +
+    'dCcbhC01SppsXVsoJyeKul+0VBULlC1fZk75XXlvO2hJc5KOmQ4w0pOfV945e+' +
+    'Jmz90ra4z89NUIid95mjY7fbKPxFadSG+OULBiIx4MZZR3m6dfCm8frN3znTrC' +
+    'BslLVXSnVGo6fC2buGfSVs+NCxpMvEFpjdSnWGtoLnCK+NIVE2TqV+MtAEZJgC' +
+    'BnoyShagieXpHAX0AAEbxDIc=');
+     
+  GuardApple := TSCARBitmap.Create('deNrd1U1rE0EYB/B+gmRn0+zOzkx2ZnZmkzRNT' +
+    'aIkkGrSYrGlirS2UKGexIOeSg+CB8EvoJ7sQRCl4KUQMSqklFIFRXzBXLRCtcW' +
+    '3ijQtSfwKTgnEQ0k3tl50+B+WZee3+8zwzKIO2CH/lxF2ZTImI8mIPBjdTtTdj' +
+    '9abEHMX2HBhyH08riJHUnumEl1yss8pTdETozH3Ut6dPS6HEu1PV2VExe+M9zq' +
+    'L0/TFRXoy40QjrhsLb1fe9uijfAaYs36jkXtx+OxcqCjMu5pxA5hZ5vxRaf2Ul' +
+    'WT350z+Uyq7KuNvDpDnk6GXFK9BthRA13TYT3mb1BHGrxD+Pp37mRusyXgFibK' +
+    'NXwv0HbIakSsmLfqNy0E0ZLN2tDFizyO+mRusp7K1kKuEDcvZgFxdqFSJrGCxC' +
+    'KzzFvGkTmP7ug4XLF7JHq2J7oawM0u6pR5Lc48FnDJxybTf9aS3ejKtKJVlwy4' +
+    'GUJ5xT+0pi9YPD9Rjh3bRNpHzREdnsJ10hIcGaZVFGyvWUrOctwAX/MYooR5aA' +
+    'FVbO4187bRXAH7kM8b2rVWx+BL4O5qi1oN0DRClPfAbp7y0BQA/QrqFxU7qh8l' +
+    'WdVLW0CvNeqjBYzaL7LYJ8qwVuqWZ8wCuI95ElPzN4h86Q8sAlwG6A+CMbl4NQ' +
+    'M+GVe+awPacL1gOkqam2lMVVfAFVW5rpmrSmBAq7ZwjXUKkuDMNiRIaue83bgJ' +
+    'zgDJ1P+k44T0ctoyPENrMsM3Ux/yjv6FfnQeQHA==');
+      
+  GuardZombieEye := TSCARBitmap.Create('deNoTZxBhUBkF9AXqmkpu4fzeCTzIyCOaV1tfn' +
+    'kgTtHQVjCzk4ksl0xskkFFytYSFg6yOAWFzVNWU7X2Ew3IE1l+1PfDCDRltv+e' +
+    'YVCXmHslHlCG+wpF54ifut9z9PAOC7nyeduZd2q6HTsk1Yh5RvEQaEpMv/+zl7' +
+    'f///0HQ338/b3zqJsuQu0+fPs3Ly1u1atXff79vfuohz5AbN25oaGg0NjZSYsj' +
+    'v379fv379+fNnMgyxdhMLTlY4fXHXw6fXIOjBk8sHb5UtP20ZlS/hFChIVEJRV' +
+    'dHQUvKKEQ5MFYCjgFQ+nwQ+XUN5VVVlItObmrqypYu4rZcIMrJ2F9XUViQ59au' +
+    'iopEBAGo2Mpo=');
+    
+  GuardChip := TSCARBitmap.Create('deNoTZxBhUBncQFkdhFRUKTBCVUXGU0sqXEfeX' +
+    'E1ZA2wUHBENFA3VpMrMFFd7SfXaSkbqyvjrwJC2jJOGko4qMabJWavLL3FX3hE' +
+    'g1WklUqwvWWYiW2khWmwg2WQhWW8hmWEob6uurEbAL7L26vKL3JQqrEUs5Vh0+' +
+    'YVcFCSjdFiVecWtFQV9lLh95YTC1aW9NEE+xQGArpXMMlLsdVQKN1SY4qg4zVk' +
+    'pz0Iux1SkQF+mzkI4WkMgSUOs1kQ6w0hJC6evFEzUpGsslWe6idop8HvIK8QYy' +
+    'hWZyU92FKs25nSR5HWSVui0l5vtLOeoiTNk1FSk/LWkemwU5rqKRGiIZeoJJqg' +
+    'LJKhLpOszKXAyyLBz6AnJNVlLVJsB7cLlDHlTNfl8Y/kSE8lmS6kkfVl/HaD7x' +
+    'aqMJRN1meRBhnCaikqXm0lF6OJyBjDApQK0SlZGdx7OdFgV4DLZQ22qk2SpsXS' +
+    'LpUSMDoeNOIeDhFi5kXSrtVSYDp5UKpVi0LY/fcn54t23ai8/bM0+ktyyK8Vsk' +
+    'ZdUm6Vkq6XcAlfZaQ7i1aZSflo4I0ZNRcZZQy3CwKveecr61NzNsS0nsp4/6+4' +
+    '+mxuzKdJhlpdUg4VItp5olJaCkRqBXKOmAlQjb6amGKqXOTN4y7nyrENJx+81L' +
+    'j1XrDvdRazAUNpVA5StiM6DclZqElE6nn0eh89VJc8NFsvQl3EklFaxpj0tVXl' +
+    'bDaM4E/VAPaALiXfDkAYAelIBUw==');
+   
+ClientBox := GetClient.ImageArea;
+end;
+
+begin
+SetupUI;
+
+Repeat
+
+if FindBitmap(x, y, GuardJail , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('r');
+PressKey('p');
+PressKey('g');
+VKeyDown(VK_SPACE);
+PressKey('j');
+PressKey('a');
+PressKey('i');
+PressKey('l');
+VKeyDown(VK_RETURN);
+Wait(5000);
+PressKey('p');
+PressKey('r');
+PressKey('o');
+PressKey('t');
+PressKey('e');
+PressKey('s');
+PressKey('t');
+VKeyDown(VK_RETURN);
+Wait(5000);
+end;
+
+PressKey('r');
+PressKey('p');
+PressKey('g');
+VKeyDown(VK_SPACE);
+PressKey('i');
+PressKey('n');
+PressKey('v');
+VKeyDown(VK_RETURN);
+Wait(3000);
+
+PressKey('r');
+PressKey('p');
+PressKey('g');
+VKeyDown(VK_SPACE);
+PressKey('n');
+PressKey('e');
+PressKey('t');
+VKeyDown(VK_RETURN);
+Wait(3000);
+
+PressKey('r');
+PressKey('p');
+PressKey('g');
+VKeyDown(VK_SPACE);
+PressKey('h');
+PressKey('u');
+PressKey('n');
+PressKey('t');
+VKeyDown(VK_SPACE);
+PressKey('t');
+VKeyDown(VK_RETURN);
+Wait(10000);
+
+if FindBitmap(x, y, GuardEpicCoin , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('e');
+PressKey('p');
+PressKey('i');
+PressKey('c');
+VKeyDown(VK_SPACE);
+PressKey('c');
+PressKey('o');
+PressKey('i');
+PressKey('i');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardGoldenFish , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('g');
+PressKey('o');
+PressKey('l');
+PressKey('d');
+PressKey('e');
+PressKey('n');
+VKeyDown(VK_SPACE);
+PressKey('f');
+PressKey('i');
+PressKey('s');
+PressKey('h');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardLifePotion , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('l');
+PressKey('i');
+PressKey('f');
+PressKey('e');
+VKeyDown(VK_SPACE);
+PressKey('p');
+PressKey('o');
+PressKey('t');
+PressKey('i');
+PressKey('o');
+PressKey('n');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardWolfSkin , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('w');
+PressKey('o');
+PressKey('l');
+PressKey('f');
+VKeyDown(VK_SPACE);
+PressKey('s');
+PressKey('k');
+PressKey('i');
+PressKey('n');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardCoin , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('c');
+PressKey('o');
+PressKey('i');
+PressKey('n');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardNormieFish , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('n');
+PressKey('o');
+PressKey('r');
+PressKey('m');
+PressKey('i');
+PressKey('e');
+VKeyDown(VK_SPACE);
+PressKey('f');
+PressKey('i');
+PressKey('s');
+PressKey('h');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardBanana , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('b');
+PressKey('a');
+PressKey('n');
+PressKey('a');
+PressKey('n');
+PressKey('a');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardGem , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('r');
+PressKey('u');
+PressKey('b');
+PressKey('y');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardMermaidHairs , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('m');
+PressKey('e');
+PressKey('r');
+PressKey('m');
+PressKey('a');
+PressKey('i');
+PressKey('d');
+VKeyDown(VK_SPACE);
+PressKey('h');
+PressKey('a');
+PressKey('i');
+PressKey('r');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardEpicFish , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('e');
+PressKey('p');
+PressKey('i');
+PressKey('c');
+VKeyDown(VK_SPACE);
+PressKey('f');
+PressKey('i');
+PressKey('s');
+PressKey('h');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardUnicornHorn , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('u');
+PressKey('n');
+PressKey('i');
+PressKey('c');
+PressKey('o');
+PressKey('r');
+PressKey('n');
+VKeyDown(VK_SPACE);
+PressKey('h');
+PressKey('o');
+PressKey('r');
+PressKey('n');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardApple , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('a');
+PressKey('p');
+PressKey('p');
+PressKey('l');
+PressKey('e');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardZombieEye , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('z');
+PressKey('o');
+PressKey('m');
+PressKey('b');
+PressKey('i');
+PressKey('e');
+VKeyDown(VK_SPACE);
+PressKey('e');
+PressKey('y');
+PressKey('e');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+if FindBitmap(x, y, GuardChip , 0, 0, ClientBox.X2, ClientBox.Y2) then
+begin
+PressKey('c');
+PressKey('h');
+PressKey('i');
+PressKey('p');
+VKeyDown(VK_RETURN);
+Wait(3000);
+end;
+
+PressKey('r');
+PressKey('p');
+PressKey('g');
+VKeyDown(VK_SPACE);
+PressKey('c');
+PressKey('d');
+VKeyDown(VK_RETURN);
+Wait(3000);
+
+Wait(190000);
+
+until (False);
+
+GuardEpicCoin.Free;
+GuardGoldenFish.Free; 
+GuardLifePotion.Free;
+GuardWolfSkin.Free;
+GuardCoin.Free;
+GuardNormieFish.Free;
+GuardBanana.Free;
+GuardGem.Free;
+GuardJail.Free;
+GuardMermaidHairs.Free;
+GuardEpicFish.Free;
+GuardUnicornHorn.Free;
+GuardApple.Free;
+GuardZombieEye.Free;
+GuardChip.Free;
+end.
